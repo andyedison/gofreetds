@@ -21,7 +21,7 @@ const statusRowSybase125 string = `
 //? in query are arguments placeholders.
 //  ExecuteSql("select * from authors where au_fname = ?", "John")
 func (conn *Conn) ExecuteSql(query string, params ...driver.Value) ([]*Result, error) {
-	if conn.sybaseMode125() {
+	if conn.sybaseMode() {
 		return conn.executeSqlSybase125(query, params...)
 	}
 	statement, numParams := query2Statement(query)
